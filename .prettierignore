@@ -1,0 +1,11 @@
+node_modules
+.next
+.husky
+coverage
+/app/favicon.ico
+/public/icons/
+.prettierignore
+.stylelintignore
+.eslintignore
+.gitignore
+README.md
