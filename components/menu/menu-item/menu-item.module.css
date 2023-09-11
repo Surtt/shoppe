@@ -1,0 +1,10 @@
+.item a {
+  color: var(--black);
+  font-size: var(--fs-4);
+  line-height: var(--lh-4);
+  text-decoration: none;
+}
+
+.item a:hover {
+  color: var(--accent);
+}

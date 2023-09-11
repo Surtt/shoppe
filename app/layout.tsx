@@ -1,13 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google';
 import { ReactNode } from 'react';
-
-const dmSans = DM_Sans({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  variable: '--font-ds-sans',
-});
+import { dmSans } from '@/app/fonts';
+import { Footer, Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Shoppe | Main Page',
@@ -22,9 +17,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='ru'>
       <body className={dmSans.className}>
-        <header>Header</header>
-        {children}
-        <footer>Footer</footer>
+        <div className='wrapper'>
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

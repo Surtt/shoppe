@@ -41,3 +41,15 @@ body {
   color: var(--black);
   font-family: var(--font-ds-sans);
 }
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    '. header .'
+    '. body .'
+    '. footer .';
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto minmax(320px, 1248px) auto;
+  min-height: 100vh;
+  padding: 30px 20px 50px;
+}

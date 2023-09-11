@@ -1,0 +1,6 @@
+.menu {
+  display: flex;
+  gap: 59px;
+  align-items: center;
+  list-style: none;
+}

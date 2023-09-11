@@ -2,7 +2,7 @@
 const eslintCommand = 'npm run lint';
 
 const formatCommand = 'prettier --write';
-const stylelintCommand = 'stylelint --allow-empty-input "**/*.{css,scss}"';
+const stylelintCommand = 'stylelint';
 module.exports = {
   '*.{js,jsx,ts,tsx}': [eslintCommand, formatCommand],
   '*.{css,scss}': [formatCommand, stylelintCommand],
