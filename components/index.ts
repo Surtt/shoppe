@@ -1,7 +1,8 @@
-export * from './header/header';
+// export * from './header/header';
 export * from './logo/logo';
 export * from './menu/menu';
 export * from './footer/footer';
-export * from './navigation/navigation';
+// export * from './navigation/navigation';
 // export * from './search/search';
 export * from './search-input/search-input';
+export * from './cart-icon-menu/cart-icon-menu';

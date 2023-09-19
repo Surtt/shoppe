@@ -42,3 +42,10 @@
     width: 288px;
   }
 }
+
+@media screen and (width <= 768px) {
+  .input {
+    width: 100%;
+    animation: initial;
+  }
+}

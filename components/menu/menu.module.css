@@ -4,3 +4,12 @@
   align-items: center;
   list-style: none;
 }
+
+@media screen and (width <= 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 24px;
+    align-items: start;
+    margin-top: 39px;
+  }
+}

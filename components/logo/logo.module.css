@@ -7,3 +7,9 @@
 .logo::first-letter {
   color: var(--accent);
 }
+
+@media screen and (width <= 768px) {
+  .logo {
+    font-size: 25px;
+  }
+}

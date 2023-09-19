@@ -16,3 +16,9 @@
   height: 17px;
   border: 1px solid var(--dark-gray);
 }
+
+@media screen and (width <= 768px) {
+  .navigation {
+    display: none;
+  }
+}

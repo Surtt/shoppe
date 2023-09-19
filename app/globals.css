@@ -29,6 +29,7 @@
 
   /* breakpoints */
   --desktop: 1440px;
+  --tablet: 768px;
   --mobile: 320px;
 }
 
@@ -52,4 +53,10 @@ body {
   grid-template-columns: auto minmax(320px, 1248px) auto;
   min-height: 100vh;
   padding: 30px 20px 50px;
+}
+
+@media screen and (width <= 768px) {
+  .wrapper {
+    padding: 15px;
+  }
 }

@@ -8,3 +8,17 @@
 .item a:hover {
   color: var(--accent);
 }
+
+@media screen and (width <= 768px) {
+  .item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .item a {
+    display: block;
+    width: 100%;
+  }
+}
