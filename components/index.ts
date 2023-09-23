@@ -6,3 +6,4 @@ export * from './footer/footer';
 // export * from './search/search';
 export * from './search-input/search-input';
 export * from './cart-icon-menu/cart-icon-menu';
+export * from './subscribe-input/subscribe-input';
