@@ -2,7 +2,8 @@ import React from 'react';
 import { CartIconMenuProps } from '@/components/cart-icon-menu/cart-icon-menu.props';
 import styles from './cart-icon-menu.module.css';
 import CartIcon from '../../public/icons/cart.svg';
-export const CartIconMenu = ({ goodAmount }: CartIconMenuProps) => {
+
+const CartIconMenu = ({ goodAmount }: CartIconMenuProps) => {
   return (
     <div className={styles.iconWrapper}>
       <CartIcon />
@@ -10,3 +11,5 @@ export const CartIconMenu = ({ goodAmount }: CartIconMenuProps) => {
     </div>
   );
 };
+
+export default CartIconMenu;

@@ -40,7 +40,7 @@ export const additionalMenu = [
   },
 ];
 
-export const MobileMenu = ({ className, ...props }: MobileMenuProps) => {
+const MobileMenu = ({ className, ...props }: MobileMenuProps) => {
   return (
     <div {...props} className={cn(className, styles.mobileMenu)}>
       <SearchInput className={styles.mobileMenuSearch} />
@@ -53,3 +53,5 @@ export const MobileMenu = ({ className, ...props }: MobileMenuProps) => {
     </div>
   );
 };
+
+export default MobileMenu;

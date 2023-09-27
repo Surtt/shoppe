@@ -27,6 +27,28 @@
   line-height: var(--lh-4);
 }
 
+.arrowIcon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 25px;
+  height: 9px;
+  transform: translateY(-50%);
+}
+
+.form {
+  position: relative;
+  width: 396px;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (width <= 768px) {
   .footer {
     grid-template-columns: 1fr;
@@ -53,5 +75,14 @@
   .copyright {
     order: 3;
     margin-top: 25px;
+  }
+
+  .arrowIcon {
+    width: 15px;
+    height: 6px;
+  }
+
+  .form {
+    width: 100%;
   }
 }

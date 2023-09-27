@@ -3,9 +3,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { NavigationProps } from '@/components/navigation/navigation.props';
-import { Menu } from '@/components';
-import { Search } from '@/components/search/search';
-import { CartIconMenu } from '@/components/cart-icon-menu/cart-icon-menu';
+import { Menu, Search, CartIconMenu } from '@/components';
 import styles from './navigation.module.css';
 import HeartIcon from '../../public/icons/heart.svg';
 import UserIcon from '../../public/icons/user.svg';
@@ -20,7 +18,7 @@ const menuItems = [
     to: '/about-us',
   },
 ];
-export const Navigation = ({ className, ...props }: NavigationProps) => {
+const Navigation = ({ className, ...props }: NavigationProps) => {
   return (
     <>
       <nav {...props} className={cn(className, styles.navigation)}>
@@ -36,3 +34,5 @@ export const Navigation = ({ className, ...props }: NavigationProps) => {
     </>
   );
 };
+
+export default Navigation;

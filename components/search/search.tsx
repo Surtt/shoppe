@@ -12,7 +12,7 @@ function assertIsNode(e: EventTarget | null): asserts e is Node {
   }
 }
 
-export const Search = ({ className, ...props }: SearchProps) => {
+const Search = ({ className, ...props }: SearchProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [showSearch, setShowSearch] = useState(false);
   const handleShowSearch = useCallback(() => {
@@ -42,3 +42,5 @@ export const Search = ({ className, ...props }: SearchProps) => {
     </div>
   );
 };
+
+export default Search;

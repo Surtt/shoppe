@@ -1,15 +1,13 @@
 'use client';
 import cn from 'classnames';
 import React, { useState } from 'react';
-import { CartIconMenu, Logo } from '@/components';
+import { CartIconMenu, Logo, Navigation, MobileMenu } from '@/components';
 import { HeaderProps } from '@/components/header/header.props';
 import CloseIcon from '@/public/icons/close.svg';
 import BurgerIcon from '@/public/icons/burger.svg';
-import { Navigation } from '@/components/navigation/navigation';
-import { MobileMenu } from '@/components/menu/mobile-menu/mobile-menu';
 import styles from './header.module.css';
 
-export const Header = ({ className, ...props }: HeaderProps) => {
+const Header = ({ className, ...props }: HeaderProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const handleOpenMobileMenu = () => setIsOpenMenu((open) => !open);
   return (
@@ -33,3 +31,5 @@ export const Header = ({ className, ...props }: HeaderProps) => {
     </header>
   );
 };
+
+export default Header;
