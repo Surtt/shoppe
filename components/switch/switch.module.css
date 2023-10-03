@@ -1,0 +1,30 @@
+.label {
+  position: relative;
+  display: block;
+  width: 33px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: var(--dark-gray);
+  text-indent: -9999px;
+  cursor: pointer;
+}
+
+.activeBg {
+  background-color: var(--accent);
+}
+
+.round {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 90px;
+  background: #fff;
+  transition: 0.3s;
+  transform: translateY(-50%);
+}
+
+.activeRoundPosition {
+  right: 2px;
+}

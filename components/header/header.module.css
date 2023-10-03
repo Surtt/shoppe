@@ -1,0 +1,36 @@
+.header {
+  display: grid;
+  grid-area: header;
+  grid-template-columns: auto 1fr;
+  padding: 20px 0;
+}
+
+.rightSide {
+  align-self: center;
+  justify-self: end;
+}
+
+.mobileMenuWrapper {
+  display: none;
+}
+
+.burger {
+  display: none;
+}
+
+@media screen and (width <= 768px) {
+  .header {
+    position: relative;
+    padding: 0;
+  }
+
+  .mobileMenuWrapper {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
