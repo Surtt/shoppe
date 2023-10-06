@@ -7,6 +7,8 @@ export { default as Menu } from './menu/menu';
 export { default as MenuItem } from './menu/menu-item/menu-item';
 export { default as MobileMenu } from './menu/mobile-menu/mobile-menu';
 export { default as Navigation } from './navigation/navigation';
+export { default as Paginate } from './paginate/paginate';
+export { default as Range } from './range/range';
 export { default as Search } from './search/search';
 export { default as SearchInput } from './search-input/search-input';
 export { default as SelectComp } from './select/select';
