@@ -1,0 +1,33 @@
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 13px 80px 13px 0;
+  border: none;
+}
+
+.mainInput {
+  border-bottom: 1px solid var(--gray);
+}
+
+.subscribeInput {
+  border-bottom: 1px solid var(--black);
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  border-bottom: 1px solid var(--red);
+}
+
+.errorMessage {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  color: var(--red);
+}

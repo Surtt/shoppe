@@ -1,0 +1,27 @@
+.mobileMenu {
+  position: absolute;
+  top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  padding-top: 10px;
+  background-color: var(--white);
+  list-style: none;
+}
+
+.mobileMenu .input-search {
+  width: 100%;
+}
+
+.mobileMenuSearch {
+  width: 100%;
+}
+
+.divider {
+  margin: 31px 0 25px;
+  border: 1px solid var(--light-gray);
+}
+
+.additionalMenu {
+  margin-top: 0;
+}

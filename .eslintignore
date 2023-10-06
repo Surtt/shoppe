@@ -1,0 +1,8 @@
+lint-staged.config.js
+next.config.js
+.eslintrc.js
+.prettierrc.json
+.stylelintrc.json
+.gitignore
+.prettierignore
+tsconfig.json

@@ -1,0 +1,51 @@
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 288px;
+  padding: 5px 10px 5px 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  outline-color: var(--accent);
+  font-weight: 400;
+  font-size: var(--fs-5);
+  line-height: var(--lh-5);
+  animation: input 0.7s;
+}
+
+.input::placeholder {
+  color: var(--dark-gray);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 14px;
+  height: 14.25px;
+  fill: var(--dark-gray);
+}
+
+.searchIcon > path + path {
+  fill: var(--dark-gray);
+}
+
+@keyframes input {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 288px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .input {
+    width: 100%;
+    animation: initial;
+  }
+}

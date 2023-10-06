@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-hudochenkov/order"
+  ],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "selector-class-pattern": "^.*$",
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["/grid/"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.productAmount {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background-color: var(--white);
+  font-size: 7px;
+  text-align: center;
+}
