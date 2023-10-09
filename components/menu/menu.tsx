@@ -5,11 +5,13 @@ import styles from './menu.module.css';
 
 const Menu = ({ items, className, ...props }: MenuProps) => {
   return (
-    <ul {...props} className={cn(className, styles.menu)}>
-      {items?.map(({ icon, name, to }) => (
-        <MenuItem key={name} icon={icon} to={to} name={name} />
-      ))}
-    </ul>
+    <nav {...props} className={className}>
+      <ul className={styles.menu}>
+        {items?.map(({ icon, name, to }) => (
+          <MenuItem key={name} icon={icon} to={to} name={name} />
+        ))}
+      </ul>
+    </nav>
   );
 };
 

@@ -56,8 +56,9 @@ const Footer = ({ className, ...props }: FooterProps) => {
     },
   });
 
+  const fullYear = new Date().getFullYear();
+
   const onSubmit = async (data: TForm) => {
-    console.log(data);
     reset();
     toast('Ваш email подписан на новости и уведомления');
   };
@@ -81,7 +82,7 @@ const Footer = ({ className, ...props }: FooterProps) => {
           <ArrowIcon className={styles.arrowIcon} />
         </button>
       </form>
-      <span className={styles.copyright}>© 2024 Shoppe</span>
+      <span className={styles.copyright}>© {fullYear} Shoppe</span>
       <div className={styles.icons}>
         <LinkedInIcon />
         <FacebookIcon />

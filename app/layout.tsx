@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { dmSans } from '@/app/fonts';
-import { Header, Footer } from '@/components';
+import { Footer, Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Shoppe | Main Page',

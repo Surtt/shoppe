@@ -1,7 +1,7 @@
 'use client';
 import cn from 'classnames';
 import React, { useState } from 'react';
-import { CartIconMenu, Logo, Navigation, MobileMenu } from '@/components';
+import { CartIconMenu, Logo, MobileMenu, Navigation } from '@/components';
 import { HeaderProps } from '@/components/header/header.props';
 import CloseIcon from '@/public/icons/close.svg';
 import BurgerIcon from '@/public/icons/burger.svg';

@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import { MobileMenuProps } from '@/components/menu/mobile-menu/mobile-menu.props';
 import UserIcon from '@/public/icons/user.svg';
@@ -47,7 +46,7 @@ const MobileMenu = ({ className, ...props }: MobileMenuProps) => {
 
       <Menu items={mainMenu} />
 
-      <div className={styles.divider}></div>
+      <hr className={styles.divider} />
 
       <Menu className={styles.additionalMenu} items={additionalMenu} />
     </div>
