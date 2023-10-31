@@ -1,27 +1,20 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-import { Paginate, Range, Switch } from '@/components';
+import { getProducts } from '@/api';
+import { ProductCard } from '@/components';
 import styles from './page.module.css';
-import { useState } from 'react';
 
-export default function Home() {
-  const [value, setValue] = useState({ min: 0, max: 100 });
-  const DynamicSelect = dynamic(() => import('@/components/select/select'), {
-    ssr: false,
-  });
+export default async function Home() {
+  const products = await getProducts(6, 0);
   return (
     <main className={styles.body}>
-      <DynamicSelect />
-      <Switch />
-      <Range
-        min={0}
-        max={100}
-        step={5}
-        values={value}
-        onChangeValue={setValue}
-      />
-      <Paginate total={25} />
+      {products?.products.map(({ name, price, discount, images }, idx) => (
+        <ProductCard
+          key={idx.toString()}
+          name={name}
+          price={price}
+          discount={discount}
+          img={images[0]}
+        />
+      ))}
     </main>
   );
 }

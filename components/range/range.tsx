@@ -1,7 +1,8 @@
 'use client';
+
+import cn from 'classnames';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { RangeProps } from './range.props';
-import cn from 'classnames';
 import styles from './range.module.css';
 
 const Range = ({
@@ -76,7 +77,7 @@ const Range = ({
         </div>
       </div>
       <p className={styles.price}>
-        Цена: ${minPos} - ${maxPos}
+        Цена: ${values.min} - ${values.max}
       </p>
     </div>
   );

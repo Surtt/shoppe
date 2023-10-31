@@ -8,7 +8,9 @@ body {
   margin: auto;
   background-color: var(--white);
   color: var(--black);
+  font-size: var(--fs-4);
   font-family: var(--font-ds-sans);
+  line-height: var(--lh-4);
 }
 
 .wrapper {

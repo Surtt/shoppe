@@ -1,23 +1,12 @@
 'use client';
 
 import React from 'react';
-import { SelectProps } from './select.props';
-import { useState } from 'react';
-import styles from './select.module.css';
 import cn from 'classnames';
 
 import Select, { StylesConfig } from 'react-select';
-
-type OptionType = {
-  value: string;
-  label: string;
-};
-
-const options: OptionType[] = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+import { SelectOption } from '@/types/select-option';
+import { SelectProps } from './select.props';
+import styles from './select.module.css';
 
 const style: StylesConfig = {
   control: (baseStyles) => ({
@@ -46,20 +35,24 @@ const style: StylesConfig = {
   }),
 };
 
-const SelectComp = ({ className, ...props }: SelectProps) => {
-  const [selectedOption, setSelectedOption] = useState<
-    OptionType | unknown | null
-  >(null);
-  const handleChange = (option: OptionType | null | unknown) => {
-    setSelectedOption(option);
+const SelectComp = ({
+  selectedOption,
+  onSelectOption,
+  options,
+  className,
+  ...props
+}: SelectProps) => {
+  const handleChange = (option: SelectOption | null) => {
+    onSelectOption(option);
   };
   return (
     <Select
       {...props}
       className={cn(className, styles.listBox)}
       styles={style}
-      defaultValue={selectedOption}
-      onChange={(option) => handleChange(option)}
+      value={selectedOption}
+      // TODO: пофиксить тип
+      onChange={handleChange}
       options={options}
       placeholder='Категория'
     />

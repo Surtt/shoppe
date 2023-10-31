@@ -11,9 +11,9 @@ import FacebookIcon from '@/public/icons/facebook.svg';
 import InstagramIcon from '@/public/icons/instagram.svg';
 import TwitterIcon from '@/public/icons/twitter.svg';
 import ArrowIcon from '@/public/icons/arrow.svg';
+import CheckIcon from '@/public/icons/check.svg';
 import { Input, Toast } from '@/components';
 import { FooterProps } from '@/components/footer/footer.props';
-import CheckIcon from '@/public/icons/check.svg';
 import styles from './footer.module.css';
 
 const footerMenu = [
@@ -58,7 +58,7 @@ const Footer = ({ className, ...props }: FooterProps) => {
 
   const fullYear = new Date().getFullYear();
 
-  const onSubmit = async (data: TForm) => {
+  const onSubmit = async () => {
     reset();
     toast('Ваш email подписан на новости и уведомления');
   };

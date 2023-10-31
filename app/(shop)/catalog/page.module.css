@@ -1,0 +1,27 @@
+.body {
+  grid-area: body;
+}
+
+.title {
+  margin-top: 96px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 261px 1fr;
+  gap: 36px;
+  margin-top: 39px;
+}
+
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(136px, 380px));
+  row-gap: 70px;
+  column-gap: 24px;
+}

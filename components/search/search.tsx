@@ -3,9 +3,9 @@ import cn from 'classnames';
 import { useRef, useState } from 'react';
 import { SearchProps } from '@/components/search/search.props';
 import { SearchInput } from '@/components';
-import styles from './search.module.css';
 import SearchIcon from '@/public/icons/search.svg';
 import { useClickOutside } from '@/hooks/useClickOutside';
+import styles from './search.module.css';
 
 const Search = ({ className, ...props }: SearchProps) => {
   const clickRef = useRef<HTMLDivElement>(null);

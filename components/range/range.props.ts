@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 
-type TValue = {
+export type TValue = {
   min: number;
   max: number;
 };

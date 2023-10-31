@@ -8,6 +8,7 @@ const Paginate = ({ className, total, onChange, ...props }: PaginateProps) => {
     <Pagination
       {...props}
       className={className}
+      onChange={onChange}
       showTitle={false}
       total={total}
       hideOnSinglePage

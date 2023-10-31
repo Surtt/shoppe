@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { MenuProps } from '@/components/menu/menu.props';
 import { MenuItem } from '@/components';
 import styles from './menu.module.css';
