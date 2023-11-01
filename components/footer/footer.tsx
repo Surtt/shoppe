@@ -71,16 +71,11 @@ const Footer = ({ className, ...props }: FooterProps) => {
           {...register('email')}
           placeholder='Ваш email для акций и предложений'
           variant='subscribe'
+          icon={<ArrowIcon className={styles.arrowIcon} />}
           error={errors.email}
+          clearErrors={clearErrors}
           aria-invalid={errors.email ? true : false}
         />
-        <button
-          type='submit'
-          className={styles.button}
-          onClick={() => clearErrors()}
-        >
-          <ArrowIcon className={styles.arrowIcon} />
-        </button>
       </form>
       <span className={styles.copyright}>© {fullYear} Shoppe</span>
       <div className={styles.icons}>

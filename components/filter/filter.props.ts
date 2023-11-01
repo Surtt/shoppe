@@ -1,7 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
+import { UseFormRegister } from 'react-hook-form';
 import { SelectOption } from '@/types/select-option';
 
 export interface FilterProps {
+  register: UseFormRegister<{ search: string }>;
   selectedOption: SelectOption | null;
   onSelectOption: Dispatch<SetStateAction<SelectOption | null>>;
   selectOptions: SelectOption[];

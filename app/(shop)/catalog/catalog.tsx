@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useForm, useWatch } from 'react-hook-form';
 import { getFilter, getProducts, getUrlWithParams, urlWithParams } from '@/api';
 import { Filter, Paginate, ProductCard } from '@/components';
 import { SelectOption } from '@/types/select-option';
@@ -12,16 +13,34 @@ export default function Catalog() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const selectedValueFromURL = searchParams.get('categoryId');
-  const minPriceFromURL = searchParams.get('priceMin');
-  const maxPriceFromURL = searchParams.get('priceMax');
+  const offsetValueFromURL = Number(searchParams.get('offset'));
+  const searchedValuefromURL = searchParams.get('name');
+  const selectedValueFromURL = Number(searchParams.get('categoryId'));
+  const minPriceFromURL = Number(searchParams.get('priceMin'));
+  const maxPriceFromURL = Number(searchParams.get('priceMax'));
   const switchedDiscount = !!searchParams.get('discounted');
 
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(
+    offsetValueFromURL + 1 ? offsetValueFromURL + 1 : 1,
+  );
   const offset = currentPage - 1;
+
   const [switchState, setSwitchState] = useState<boolean>(
     switchedDiscount ? switchedDiscount : false,
   );
+
+  const { register, control } = useForm<{
+    search: string;
+  }>({
+    defaultValues: {
+      search: searchedValuefromURL ? searchedValuefromURL : '',
+    },
+  });
+  const search = useWatch({
+    control,
+    name: 'search',
+    defaultValue: searchedValuefromURL ? searchedValuefromURL : '',
+  });
 
   const { data: filter } = useQuery({
     queryKey: ['filter'],
@@ -29,12 +48,8 @@ export default function Catalog() {
   });
 
   const [rangeValues, setRangeValues] = useState<{ min: number; max: number }>({
-    min: Number(minPriceFromURL)
-      ? Number(minPriceFromURL)
-      : (filter?.minPrice as number),
-    max: Number(maxPriceFromURL)
-      ? Number(maxPriceFromURL)
-      : (filter?.maxPrice as number),
+    min: minPriceFromURL ? minPriceFromURL : (filter?.minPrice as number),
+    max: maxPriceFromURL ? maxPriceFromURL : (filter?.maxPrice as number),
   });
 
   const selectOptions = filter?.categories.map(({ id, name }) => {
@@ -42,7 +57,7 @@ export default function Catalog() {
   });
 
   const selectedOptionFromURL = selectOptions?.filter(
-    (o) => o.value === Number(selectedValueFromURL),
+    (o) => o.value === selectedValueFromURL,
   )[0];
 
   const [selectedOption, setSelectedOption] = useState<SelectOption | null>(
@@ -56,6 +71,7 @@ export default function Catalog() {
         urlWithParams(
           6,
           offset,
+          search,
           selectedOption?.value,
           rangeValues.min,
           rangeValues.max,
@@ -68,6 +84,7 @@ export default function Catalog() {
   }, [
     router,
     pathname,
+    search,
     selectedOption?.value,
     rangeValues.min,
     rangeValues.max,
@@ -79,6 +96,7 @@ export default function Catalog() {
   const { data: products, isLoading } = useQuery({
     queryKey: [
       'products',
+      search,
       selectedOption,
       rangeValues,
       switchState,
@@ -88,6 +106,7 @@ export default function Catalog() {
       getProducts(
         6,
         currentPage,
+        search,
         selectedOption?.value,
         rangeValues.min,
         rangeValues.max,
@@ -103,6 +122,7 @@ export default function Catalog() {
     <>
       <section className={styles.sidebarWrapper}>
         <Filter
+          register={register}
           selectedOption={selectedOption}
           onSelectOption={setSelectedOption}
           selectOptions={selectOptions as SelectOption[]}
@@ -128,8 +148,6 @@ export default function Catalog() {
         <Paginate
           current={currentPage}
           total={products?.totalProducts}
-          // pageSize={6}
-          // onChange={() => setCurrentPage((current) => current + 1)}
           onChange={onChangeNumberPage}
         />
       </section>

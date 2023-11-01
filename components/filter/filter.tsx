@@ -1,10 +1,13 @@
 'use client';
 
-import { Range, Search, Select, Switch } from '@/components';
+import { Input, Range, Select, Switch } from '@/components';
+import SearchIcon from '@/public/icons/search.svg';
 import { FilterProps } from './filter.props';
+import styles from './filter.module.css';
 import { TValue } from '../range/range.props';
 
 const Filter = ({
+  register,
   selectedOption,
   onSelectOption,
   selectOptions,
@@ -17,7 +20,12 @@ const Filter = ({
 }: FilterProps) => {
   return (
     <>
-      <Search />
+      <Input
+        {...register('search')}
+        placeholder='Поиск...'
+        variant='subscribe'
+        icon={<SearchIcon className={styles.searchIcon} />}
+      />
       <Select
         options={selectOptions}
         selectedOption={selectedOption}

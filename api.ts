@@ -12,6 +12,7 @@ export const getUrlWithParams = (url: string, params: URLSearchParams) => {
 export const urlWithParams = (
   limit: number,
   offset: number,
+  name?: string,
   categoryId?: number,
   priceMin?: number,
   priceMax?: number,
@@ -21,6 +22,7 @@ export const urlWithParams = (
     limit: limit.toString(),
     offset: offset.toString(),
   });
+  name && params.append('name', name.toString());
   categoryId && params.append('categoryId', categoryId.toString());
   priceMin && params.append('priceMin', priceMin.toString());
   priceMax && params.append('priceMax', priceMax.toString());
@@ -41,6 +43,7 @@ export const getFilter = async (): Promise<Filter> => {
 export const getProducts = async (
   limit: number,
   offset: number,
+  name?: string,
   categoryId?: number,
   priceMin?: number,
   priceMax?: number,
@@ -49,7 +52,15 @@ export const getProducts = async (
   const res = await fetch(
     getUrlWithParams(
       API.products,
-      urlWithParams(limit, offset, categoryId, priceMin, priceMax, discounted),
+      urlWithParams(
+        limit,
+        offset,
+        name,
+        categoryId,
+        priceMin,
+        priceMax,
+        discounted,
+      ),
     ),
   );
   if (!res.ok) {

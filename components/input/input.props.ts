@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
-import { FieldError } from 'react-hook-form';
+import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
+import { FieldError, UseFormClearErrors } from 'react-hook-form';
 
 export interface InputProps
   extends DetailedHTMLProps<
@@ -7,5 +7,7 @@ export interface InputProps
     HTMLInputElement
   > {
   variant?: 'subscribe';
+  icon?: ReactNode;
   error?: FieldError;
+  clearErrors?: UseFormClearErrors<{ email: string }>;
 }
