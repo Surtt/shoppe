@@ -4,6 +4,7 @@ export interface ProductCardProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   name: string;
   price: number;
-  discount?: number;
   img: string;
+  imgSize: string;
+  discount?: number;
 }

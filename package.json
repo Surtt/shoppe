@@ -22,6 +22,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.2",
     "react-hot-toast": "^2.4.1",
+    "react-multi-carousel": "^2.8.4",
     "react-select": "^5.7.7",
     "valibot": "^0.17.1"
   },

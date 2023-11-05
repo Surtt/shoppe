@@ -1,3 +1,4 @@
+export { default as Carousel } from './carousel/carousel';
 export { default as CartIconMenu } from './cart-icon-menu/cart-icon-menu';
 export { default as Filter } from './filter/filter';
 export { default as Footer } from './footer/footer';

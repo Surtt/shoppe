@@ -25,3 +25,23 @@
   row-gap: 70px;
   column-gap: 24px;
 }
+
+@media screen and (width <= 768px) {
+  .title {
+    font-size: var(--fs-3);
+    line-height: var(--lh-3);
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarWrapper {
+    /* display: none; */
+  }
+
+  .cardsWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 136px);
+  }
+}

@@ -143,6 +143,7 @@ export default function Catalog() {
             price={price}
             discount={discount}
             img={images[0]}
+            imgSize='300px'
           />
         ))}
         <Paginate

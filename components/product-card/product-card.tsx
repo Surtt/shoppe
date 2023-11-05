@@ -19,6 +19,7 @@ const ProductCard = ({
   price,
   discount,
   img,
+  imgSize,
   className,
   ...props
 }: ProductCardProps) => {
@@ -32,20 +33,28 @@ const ProductCard = ({
       <div
         onMouseLeave={() => setIsShown((shown) => !shown)}
         onMouseEnter={() => setIsShown((shown) => !shown)}
-        className={styles.imgWrapper}
+        className={cn(styles.imgWrapper, {
+          [styles.imgWrapper300]: imgSize === '300px',
+          [styles.imgWrapper380]: imgSize === '380px',
+        })}
       >
         <Image
           className={styles.img}
           src={img}
           alt={name}
-          sizes='300px'
+          sizes={imgSize}
           fill
           priority={true}
         />
         {discount && <span className={styles.discountBadge}>-{discount}%</span>}
         <IconHeart className={styles.favourite} width='19' height='18' />
         {isShown && (
-          <div className={styles.buttons}>
+          <div
+            className={cn(styles.buttons, {
+              [styles.imgWrapper300]: imgSize === '300px',
+              [styles.imgWrapper380]: imgSize === '380px',
+            })}
+          >
             <IconCart className={styles.icon} width={25} height={25} />
             <IconEye className={styles.icon} width={32} height={32} />
             <IconHeart className={styles.icon} width={25} height={25} />
