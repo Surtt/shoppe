@@ -2,8 +2,8 @@
 
 import { Input, Range, Select, Switch } from '@/components';
 import SearchIcon from '@/public/icons/search.svg';
-import { FilterProps } from './filter.props';
 import styles from './filter.module.css';
+import { FilterProps } from './filter.props';
 import { TValue } from '../range/range.props';
 
 const Filter = ({

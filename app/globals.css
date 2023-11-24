@@ -9,7 +9,7 @@ body {
   background-color: var(--white);
   color: var(--black);
   font-size: var(--fs-4);
-  font-family: var(--font-ds-sans);
+  font-family: var(--font-open-sans);
   line-height: var(--lh-4);
 }
 
@@ -20,7 +20,7 @@ body {
     '. body .'
     '. footer .';
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: auto minmax(320px, 1248px) auto;
+  grid-template-columns: auto minmax(288px, 1248px) auto;
   min-height: 100vh;
   padding: 30px 20px 50px;
 }

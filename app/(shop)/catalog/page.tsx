@@ -3,10 +3,10 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query';
-import { Title } from '@/components';
 import { getFilter, getProducts } from '@/api';
-import styles from './page.module.css';
+import { MobileSearchInput, Title } from '@/components';
 import Catalog from './catalog';
+import styles from './page.module.css';
 
 export default async function CatalogPage() {
   const queryClient = new QueryClient();
@@ -23,6 +23,7 @@ export default async function CatalogPage() {
 
   return (
     <>
+      <MobileSearchInput className={styles.mobileSearchInput} />
       <Title className={styles.title} tag='h1'>
         Каталог товаров
       </Title>

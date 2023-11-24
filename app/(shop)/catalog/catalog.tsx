@@ -1,45 +1,56 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { getFilter, getProducts, getUrlWithParams, urlWithParams } from '@/api';
 import { Filter, Paginate, ProductCard } from '@/components';
+import useWindowResizeThreshold from '@/hooks/useWindowResize';
+import FilterIcon from '@/public/icons/filter.svg';
 import { SelectOption } from '@/types/select-option';
 import styles from './page.module.css';
 
 export default function Catalog() {
+  const isMobileSize = useWindowResizeThreshold(768);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const offsetValueFromURL = Number(searchParams.get('offset'));
-  const searchedValuefromURL = searchParams.get('name');
-  const selectedValueFromURL = Number(searchParams.get('categoryId'));
-  const minPriceFromURL = Number(searchParams.get('priceMin'));
-  const maxPriceFromURL = Number(searchParams.get('priceMax'));
-  const switchedDiscount = !!searchParams.get('discounted');
 
-  const [currentPage, setCurrentPage] = useState<number>(
-    offsetValueFromURL + 1 ? offsetValueFromURL + 1 : 1,
-  );
+  const queries = useMemo(() => {
+    return {
+      offset: Number(searchParams.get('offset')),
+      name: searchParams.get('name'),
+      categoryId: Number(searchParams.get('categoryId')),
+      priceMin: Number(searchParams.get('priceMin')),
+      priceMax: Number(searchParams.get('priceMax')),
+      discounted: !!searchParams.get('discounted'),
+    };
+  }, [searchParams]);
+
+  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
+
+  const getCurrentNumberPage = () =>
+    queries.offset + 1 ? queries.offset + 1 : 1;
+
+  const [currentPage, setCurrentPage] = useState<number>(getCurrentNumberPage);
   const offset = currentPage - 1;
 
   const [switchState, setSwitchState] = useState<boolean>(
-    switchedDiscount ? switchedDiscount : false,
+    queries.discounted ? queries.discounted : false,
   );
 
   const { register, control } = useForm<{
     search: string;
   }>({
     defaultValues: {
-      search: searchedValuefromURL ? searchedValuefromURL : '',
+      search: queries.name ? queries.name : '',
     },
   });
   const search = useWatch({
     control,
     name: 'search',
-    defaultValue: searchedValuefromURL ? searchedValuefromURL : '',
+    defaultValue: queries.name ? queries.name : '',
   });
 
   const { data: filter } = useQuery({
@@ -48,8 +59,8 @@ export default function Catalog() {
   });
 
   const [rangeValues, setRangeValues] = useState<{ min: number; max: number }>({
-    min: minPriceFromURL ? minPriceFromURL : (filter?.minPrice as number),
-    max: maxPriceFromURL ? maxPriceFromURL : (filter?.maxPrice as number),
+    min: queries.priceMin ? queries.priceMin : (filter?.minPrice as number),
+    max: queries.priceMax ? queries.priceMax : (filter?.maxPrice as number),
   });
 
   const selectOptions = filter?.categories.map(({ id, name }) => {
@@ -57,7 +68,7 @@ export default function Catalog() {
   });
 
   const selectedOptionFromURL = selectOptions?.filter(
-    (o) => o.value === selectedValueFromURL,
+    (o) => o.value === queries.categoryId,
   )[0];
 
   const [selectedOption, setSelectedOption] = useState<SelectOption | null>(
@@ -75,8 +86,6 @@ export default function Catalog() {
           selectedOption?.value,
           rangeValues.min,
           rangeValues.max,
-          // rangeValues.min > filter?.minPrice && rangeValues.min,
-          // rangeValues.max < filter?.maxPrice && rangeValues.max,
           switchState,
         ),
       ),
@@ -118,22 +127,50 @@ export default function Catalog() {
     setCurrentPage(page);
   };
 
+  const handleOpenFilter = () => {
+    setIsOpenFilter(!isOpenFilter);
+  };
+
   return (
     <>
-      <section className={styles.sidebarWrapper}>
-        <Filter
-          register={register}
-          selectedOption={selectedOption}
-          onSelectOption={setSelectedOption}
-          selectOptions={selectOptions as SelectOption[]}
-          rangeValues={rangeValues}
-          onRangeValues={setRangeValues}
-          minPrice={filter?.minPrice as number}
-          maxPrice={filter?.maxPrice as number}
-          switchState={switchState}
-          onSwitch={setSwitchState}
-        />
-      </section>
+      {isMobileSize ? (
+        <div className={styles.mobileFilterWrapper} onClick={handleOpenFilter}>
+          <FilterIcon />
+          <span className={styles.filtersText}>Фильтры</span>
+        </div>
+      ) : (
+        <section className={styles.sidebarWrapper}>
+          <Filter
+            register={register}
+            selectedOption={selectedOption}
+            onSelectOption={setSelectedOption}
+            selectOptions={selectOptions as SelectOption[]}
+            rangeValues={rangeValues}
+            onRangeValues={setRangeValues}
+            minPrice={filter?.minPrice as number}
+            maxPrice={filter?.maxPrice as number}
+            switchState={switchState}
+            onSwitch={setSwitchState}
+          />
+        </section>
+      )}
+      {isOpenFilter && (
+        <section className={styles.sidebarWrapper}>
+          <Filter
+            register={register}
+            selectedOption={selectedOption}
+            onSelectOption={setSelectedOption}
+            selectOptions={selectOptions as SelectOption[]}
+            rangeValues={rangeValues}
+            onRangeValues={setRangeValues}
+            minPrice={filter?.minPrice as number}
+            maxPrice={filter?.maxPrice as number}
+            switchState={switchState}
+            onSwitch={setSwitchState}
+          />
+        </section>
+      )}
+
       {isLoading && <h2>Loading...</h2>}
       <section className={styles.cardsWrapper}>
         {products?.products.map(({ name, price, discount, images }, idx) => (
@@ -146,12 +183,13 @@ export default function Catalog() {
             imgSize='300px'
           />
         ))}
-        <Paginate
-          current={currentPage}
-          total={products?.totalProducts}
-          onChange={onChangeNumberPage}
-        />
       </section>
+      <Paginate
+        className={styles.paginate}
+        current={currentPage}
+        total={products?.totalProducts}
+        onChange={onChangeNumberPage}
+      />
     </>
   );
 }

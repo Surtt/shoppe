@@ -1,9 +1,4 @@
-.listBox {
-  width: 261px;
-}
-
 .list {
-  width: 261px;
   padding: 15px 0;
   border: 1px solid var(--gray);
   list-style: none;

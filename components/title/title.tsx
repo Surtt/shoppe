@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import { TitleProps } from './title.props';
 import styles from './title.module.css';
+import { TitleProps } from './title.props';
 
 const Title = ({ tag, children, className, ...props }: TitleProps) => {
   switch (tag) {

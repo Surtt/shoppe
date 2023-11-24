@@ -1,0 +1,9 @@
+.paginate {
+  grid-column-start: 2;
+}
+
+@media screen and (width <= 768px) {
+  .paginate {
+    grid-column-start: 1;
+  }
+}

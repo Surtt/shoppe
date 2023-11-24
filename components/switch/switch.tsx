@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
 import cn from 'classnames';
-import { SwitchProps } from './switch.props';
+import React from 'react';
 import styles from './switch.module.css';
+import { SwitchProps } from './switch.props';
 
 const Switch = ({
   switchState,

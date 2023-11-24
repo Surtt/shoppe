@@ -1,9 +1,11 @@
-import { CarouselCardProps } from './carousel-card.props';
-import styles from './carousel-card.module.css';
-import { Title } from '@/components';
+import cn from 'classnames';
 import Image from 'next/image';
+import { Title } from '@/components';
+import styles from './carousel-card.module.css';
+import { CarouselCardProps } from './carousel-card.props';
 
-const CarouselCard = ({ name, price, img }: CarouselCardProps) => {
+const CarouselCard = ({ name, price, img, device }: CarouselCardProps) => {
+  console.log(device);
   const formatPrice = new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency: 'USD',
@@ -18,7 +20,21 @@ const CarouselCard = ({ name, price, img }: CarouselCardProps) => {
         <span className={styles.price}>{formatPrice}</span>
         <button className={styles.btn}>Смотреть</button>
       </div>
-      <Image src={img} alt={name} priority={true} />
+      <div
+        className={cn(styles.imgWrapper, {
+          [styles.imgWrapperDesktop]: device.desktop.breakpoint.max,
+          [styles.imgWrapperTable]: device.tablet.breakpoint.max,
+          [styles.imgWrapperMobile]: device.mobile.breakpoint.max,
+        })}
+      >
+        <Image
+          src={img}
+          alt={name}
+          fill
+          priority={true}
+          style={{ objectFit: 'cover' }}
+        />
+      </div>
     </div>
   );
 };

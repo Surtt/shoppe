@@ -1,9 +1,9 @@
-import { Allerta_Stencil, DM_Sans } from 'next/font/google';
+import { Allerta_Stencil, Open_Sans } from 'next/font/google';
 
-export const dmSans = DM_Sans({
+export const dmSans = Open_Sans({
   weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  variable: '--font-ds-sans',
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-open-sans',
 });
 
 export const allertaStencil = Allerta_Stencil({

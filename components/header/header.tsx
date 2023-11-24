@@ -1,12 +1,12 @@
 'use client';
 import cn from 'classnames';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { CartIconMenu, Logo, MobileMenu, Navigation } from '@/components';
 import { HeaderProps } from '@/components/header/header.props';
-import CloseIcon from '@/public/icons/close.svg';
 import BurgerIcon from '@/public/icons/burger.svg';
+import CloseIcon from '@/public/icons/close.svg';
 import styles from './header.module.css';
-import Link from 'next/link';
 
 const Header = ({ className, ...props }: HeaderProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);

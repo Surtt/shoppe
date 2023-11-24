@@ -1,9 +1,8 @@
 import cn from 'classnames';
-import { CustomDotProps } from './custom-dot.props';
 import styles from './custom-dot.module.css';
+import { CustomDotProps } from './custom-dot.props';
 
-const CustomDot = ({ onClick, ...rest }: CustomDotProps) => {
-  const { active } = rest;
+const CustomDot = ({ onClick, active }: CustomDotProps) => {
   return (
     <div className={styles.buttonWrapper}>
       <button
@@ -11,7 +10,7 @@ const CustomDot = ({ onClick, ...rest }: CustomDotProps) => {
           [styles.active]: active,
           [styles.inactive]: !active,
         })}
-        onClick={() => onClick()}
+        onClick={onClick}
       ></button>
     </div>
   );

@@ -1,5 +1,5 @@
-import { MenuProps } from '@/components/menu/menu.props';
 import { MenuItem } from '@/components';
+import { MenuProps } from '@/components/menu/menu.props';
 import styles from './menu.module.css';
 
 const Menu = ({ items, className, ...props }: MenuProps) => {

@@ -2,8 +2,8 @@
 
 import cn from 'classnames';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { RangeProps } from './range.props';
 import styles from './range.module.css';
+import { RangeProps } from './range.props';
 
 const Range = ({
   className,

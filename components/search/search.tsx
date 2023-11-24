@@ -1,10 +1,10 @@
 'use client';
 import cn from 'classnames';
 import { useRef, useState } from 'react';
-import { SearchProps } from '@/components/search/search.props';
 import { SearchInput } from '@/components';
-import SearchIcon from '@/public/icons/search.svg';
+import { SearchProps } from '@/components/search/search.props';
 import { useClickOutside } from '@/hooks/useClickOutside';
+import SearchIcon from '@/public/icons/search.svg';
 import styles from './search.module.css';
 
 const Search = ({ className, ...props }: SearchProps) => {

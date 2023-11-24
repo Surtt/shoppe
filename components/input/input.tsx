@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { ForwardedRef, forwardRef } from 'react';
-import { InputProps } from './input.props';
 import styles from './input.module.css';
+import { InputProps } from './input.props';
 
 // eslint-disable-next-line react/display-name
 const Input = forwardRef(

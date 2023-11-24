@@ -26,14 +26,25 @@
   column-gap: 24px;
 }
 
+.paginate {
+  margin-bottom: 164px;
+}
+
+.mobileSearchInput {
+  margin-top: 17px;
+}
+
 @media screen and (width <= 768px) {
   .title {
+    margin-top: 24px;
     font-size: var(--fs-3);
     line-height: var(--lh-3);
   }
 
   .wrapper {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 15px;
   }
 
   .sidebarWrapper {
@@ -43,5 +54,19 @@
   .cardsWrapper {
     display: grid;
     grid-template-columns: repeat(2, 136px);
+    row-gap: 24px;
+    column-gap: 16px;
+  }
+
+  .mobileFilterWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .filtersText {
+    color: var(--accent);
+    font-size: var(--fs-6);
+    line-height: var(--lh-6);
   }
 }

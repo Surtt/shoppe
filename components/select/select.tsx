@@ -1,12 +1,12 @@
 'use client';
 
-import React from 'react';
 import cn from 'classnames';
+import React from 'react';
 
 import Select, { StylesConfig } from 'react-select';
 import { SelectOption } from '@/types/select-option';
-import { SelectProps } from './select.props';
 import styles from './select.module.css';
+import { SelectProps } from './select.props';
 
 const style: StylesConfig = {
   control: (baseStyles) => ({
@@ -40,19 +40,16 @@ const SelectComp = ({
   onSelectOption,
   options,
   className,
-  ...props
 }: SelectProps) => {
   const handleChange = (option: SelectOption | null) => {
     onSelectOption(option);
   };
   return (
     <Select
-      {...props}
       className={cn(className, styles.listBox)}
       styles={style}
       value={selectedOption}
-      // TODO: пофиксить тип
-      onChange={handleChange}
+      onChange={(newValue) => handleChange(newValue as SelectOption)}
       options={options}
       placeholder='Категория'
     />

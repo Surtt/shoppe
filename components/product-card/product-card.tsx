@@ -1,13 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import cn from 'classnames';
+import Image from 'next/image';
 import { useState } from 'react';
 import IconCart from '@/public/icons/cart.svg';
 import IconEye from '@/public/icons/eye.svg';
 import IconHeart from '@/public/icons/heart.svg';
-import { ProductCardProps } from './product-card.props';
 import styles from './product-card.module.css';
+import { ProductCardProps } from './product-card.props';
 
 const getPriceWithDiscount = (price: number, discount: number) => {
   const amount = (price / 100) * discount;
@@ -23,20 +23,25 @@ const ProductCard = ({
   className,
   ...props
 }: ProductCardProps) => {
+  const imgStyles = {
+    [styles.imgWrapper300]: imgSize === '300px',
+    [styles.imgWrapper380]: imgSize === '380px',
+  };
+
   const [isShown, setIsShown] = useState(false);
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
+
+  const handleShow = () => setIsShown((shown) => !shown);
+
   return (
     <div {...props} className={cn(className, styles.productCardWrapper)}>
       <div
-        onMouseLeave={() => setIsShown((shown) => !shown)}
-        onMouseEnter={() => setIsShown((shown) => !shown)}
-        className={cn(styles.imgWrapper, {
-          [styles.imgWrapper300]: imgSize === '300px',
-          [styles.imgWrapper380]: imgSize === '380px',
-        })}
+        onMouseLeave={handleShow}
+        onMouseEnter={handleShow}
+        className={cn(styles.imgWrapper, imgStyles)}
       >
         <Image
           className={styles.img}
@@ -49,12 +54,7 @@ const ProductCard = ({
         {discount && <span className={styles.discountBadge}>-{discount}%</span>}
         <IconHeart className={styles.favourite} width='19' height='18' />
         {isShown && (
-          <div
-            className={cn(styles.buttons, {
-              [styles.imgWrapper300]: imgSize === '300px',
-              [styles.imgWrapper380]: imgSize === '380px',
-            })}
-          >
+          <div className={cn(styles.buttons, imgStyles)}>
             <IconCart className={styles.icon} width={25} height={25} />
             <IconEye className={styles.icon} width={32} height={32} />
             <IconHeart className={styles.icon} width={25} height={25} />
