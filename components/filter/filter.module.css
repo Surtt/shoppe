@@ -1,0 +1,8 @@
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 19px;
+  height: 19px;
+  transform: translateY(-50%);
+}

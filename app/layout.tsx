@@ -2,7 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { dmSans } from '@/app/fonts';
-import { Header, Footer } from '@/components';
+import { Footer, Header } from '@/components';
+import Providers from './providers';
 
 export const metadata: Metadata = {
   title: 'Shoppe | Main Page',
@@ -18,9 +19,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang='ru'>
       <body className={dmSans.className}>
         <div className='wrapper'>
-          <Header />
-          {children}
-          <Footer />
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
         </div>
       </body>
     </html>

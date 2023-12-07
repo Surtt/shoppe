@@ -3,7 +3,7 @@ node_modules
 .husky
 coverage
 /app/favicon.ico
-/public/icons/
+/public/
 .prettierignore
 .stylelintignore
 .eslintignore

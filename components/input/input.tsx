@@ -1,14 +1,19 @@
 import cn from 'classnames';
 import { ForwardedRef, forwardRef } from 'react';
-import { InputProps } from './input.props';
 import styles from './input.module.css';
+import { InputProps } from './input.props';
 
 // eslint-disable-next-line react/display-name
 const Input = forwardRef(
   (
-    { variant, error, className, ...props }: InputProps,
+    { variant, icon, error, clearErrors, className, ...props }: InputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
+    const handleClearErrors = () => {
+      if (clearErrors) {
+        return () => clearErrors();
+      }
+    };
     return (
       <div className={cn(className, styles.inputWrapper)}>
         <input
@@ -20,6 +25,15 @@ const Input = forwardRef(
             [styles.error]: error,
           })}
         />
+        {icon && (
+          <button
+            type='submit'
+            className={styles.button}
+            onClick={handleClearErrors}
+          >
+            {icon}
+          </button>
+        )}
         {error && (
           <span role='alert' className={styles.errorMessage}>
             {error?.message}

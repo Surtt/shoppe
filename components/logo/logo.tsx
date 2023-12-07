@@ -1,11 +1,8 @@
-import cn from 'classnames';
-import { allertaStencil } from '@/app/fonts';
 import styles from '@/components/logo/logo.module.css';
+import LogoImg from '@/public/icons/logo.svg';
 
 const Logo = () => {
-  return (
-    <div className={cn(allertaStencil.className, styles.logo)}>shoppe</div>
-  );
+  return <LogoImg className={styles.logo} />;
 };
 
 export default Logo;

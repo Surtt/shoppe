@@ -1,0 +1,31 @@
+:root {
+  /* colors */
+  --accent: rgb(161 138 104 / 100%);
+  --black: rgb(0 0 0 / 100%);
+  --dark-gray: rgb(112 112 112 / 100%);
+  --gray: rgb(216 216 216 / 100%);
+  --light-gray: rgb(239 239 239 / 100%);
+  --white: rgb(255 255 255 / 100%);
+  --red: rgb(216 39 0 / 100%);
+
+  /* font sizes */
+  --fs-1: 33px;
+  --fs-2: 26px;
+  --fs-3: 20px;
+  --fs-4: 16px;
+  --fs-5: 14px;
+  --fs-6: 12px;
+
+  /* line heights */
+  --lh-1: 43px;
+  --lh-2: 35px;
+  --lh-3: 26px;
+  --lh-4: 27px;
+  --lh-5: 22px;
+  --lh-6: 20px;
+
+  /* breakpoints */
+  --desktop: 1440px;
+  --tablet: 768px;
+  --mobile: 320px;
+}

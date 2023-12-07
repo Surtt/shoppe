@@ -1,19 +1,19 @@
 'use client';
 
+import { valibotResolver } from '@hookform/resolvers/valibot';
 import cn from 'classnames';
 import { useForm } from 'react-hook-form';
-import { email, minLength, object, string } from 'valibot';
-import { valibotResolver } from '@hookform/resolvers/valibot';
 import toast from 'react-hot-toast';
+import { email, minLength, object, string } from 'valibot';
 import { Menu } from '@/components';
-import LinkedInIcon from '@/public/icons/linkedin.svg';
-import FacebookIcon from '@/public/icons/facebook.svg';
-import InstagramIcon from '@/public/icons/instagram.svg';
-import TwitterIcon from '@/public/icons/twitter.svg';
-import ArrowIcon from '@/public/icons/arrow.svg';
 import { Input, Toast } from '@/components';
 import { FooterProps } from '@/components/footer/footer.props';
+import ArrowIcon from '@/public/icons/arrow.svg';
 import CheckIcon from '@/public/icons/check.svg';
+import FacebookIcon from '@/public/icons/facebook.svg';
+import InstagramIcon from '@/public/icons/instagram.svg';
+import LinkedInIcon from '@/public/icons/linkedin.svg';
+import TwitterIcon from '@/public/icons/twitter.svg';
 import styles from './footer.module.css';
 
 const footerMenu = [
@@ -56,8 +56,9 @@ const Footer = ({ className, ...props }: FooterProps) => {
     },
   });
 
-  const onSubmit = async (data: TForm) => {
-    console.log(data);
+  const fullYear = new Date().getFullYear();
+
+  const onSubmit = async () => {
     reset();
     toast('Ваш email подписан на новости и уведомления');
   };
@@ -70,18 +71,18 @@ const Footer = ({ className, ...props }: FooterProps) => {
           {...register('email')}
           placeholder='Ваш email для акций и предложений'
           variant='subscribe'
+          icon={<ArrowIcon className={styles.arrowIcon} />}
           error={errors.email}
+          clearErrors={clearErrors}
           aria-invalid={errors.email ? true : false}
         />
         <button
           type='submit'
           className={styles.button}
           onClick={() => clearErrors()}
-        >
-          <ArrowIcon className={styles.arrowIcon} />
-        </button>
+        ></button>
       </form>
-      <span className={styles.copyright}>© 2024 Shoppe</span>
+      <span className={styles.copyright}>© {fullYear} Shoppe</span>
       <div className={styles.icons}>
         <LinkedInIcon />
         <FacebookIcon />

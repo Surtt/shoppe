@@ -4,7 +4,7 @@
 
 .input {
   width: 100%;
-  padding: 13px 80px 13px 0;
+  padding: 13px 30px 13px 0;
   border: none;
 }
 
@@ -30,4 +30,11 @@
   top: 120%;
   left: 0;
   color: var(--red);
+}
+
+@media screen and (width <= 768px) {
+  .input {
+    font-size: var(--fs-5);
+    line-height: var(--lh-5);
+  }
 }

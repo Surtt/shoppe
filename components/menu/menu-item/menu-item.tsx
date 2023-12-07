@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
+import Link from 'next/link';
+import React from 'react';
 import { MenuItemProps } from '@/components/menu/menu-item/menu-item.props';
 import styles from './menu-item.module.css';
 

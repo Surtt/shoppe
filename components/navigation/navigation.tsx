@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
 import cn from 'classnames';
-import { NavigationProps } from '@/components/navigation/navigation.props';
+import React from 'react';
 import { Menu, Search, CartIconMenu } from '@/components';
+import { NavigationProps } from '@/components/navigation/navigation.props';
 import styles from './navigation.module.css';
 import HeartIcon from '../../public/icons/heart.svg';
 import UserIcon from '../../public/icons/user.svg';
