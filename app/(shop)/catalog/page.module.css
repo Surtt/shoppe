@@ -1,0 +1,72 @@
+.body {
+  grid-area: body;
+}
+
+.title {
+  margin-top: 96px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 261px 1fr;
+  gap: 36px;
+  margin-top: 39px;
+}
+
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(136px, 380px));
+  row-gap: 70px;
+  column-gap: 24px;
+}
+
+.paginate {
+  margin-bottom: 164px;
+}
+
+.mobileSearchInput {
+  margin-top: 17px;
+}
+
+@media screen and (width <= 768px) {
+  .title {
+    margin-top: 24px;
+    font-size: var(--fs-3);
+    line-height: var(--lh-3);
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 15px;
+  }
+
+  .sidebarWrapper {
+    /* display: none; */
+  }
+
+  .cardsWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 136px);
+    row-gap: 24px;
+    column-gap: 16px;
+  }
+
+  .mobileFilterWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .filtersText {
+    color: var(--accent);
+    font-size: var(--fs-6);
+    line-height: var(--lh-6);
+  }
+}

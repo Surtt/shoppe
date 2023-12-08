@@ -1,0 +1,15 @@
+.list {
+  padding: 15px 0;
+  border: 1px solid var(--gray);
+  list-style: none;
+}
+
+.item {
+  padding: 15px 12px;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}

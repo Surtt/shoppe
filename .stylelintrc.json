@@ -1,10 +1,13 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-hudochenkov/order"
+    "stylelint-config-hudochenkov/order",
+    "stylelint-config-recommended",
+    "stylelint-prettier/recommended"
   ],
-  "plugins": ["stylelint-order"],
+  "plugins": ["stylelint-order", "stylelint-prettier"],
   "rules": {
+    "prettier/prettier": true,
     "selector-class-pattern": "^.*$",
     "declaration-block-no-redundant-longhand-properties": [
       true,

@@ -29,10 +29,6 @@
   fill: var(--dark-gray);
 }
 
-.searchIcon > path + path {
-  fill: var(--dark-gray);
-}
-
 @keyframes input {
   0% {
     width: 0;

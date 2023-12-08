@@ -1,10 +1,11 @@
 'use client';
 import cn from 'classnames';
+import Link from 'next/link';
 import React, { useState } from 'react';
-import { CartIconMenu, Logo, Navigation, MobileMenu } from '@/components';
+import { CartIconMenu, Logo, MobileMenu, Navigation } from '@/components';
 import { HeaderProps } from '@/components/header/header.props';
-import CloseIcon from '@/public/icons/close.svg';
 import BurgerIcon from '@/public/icons/burger.svg';
+import CloseIcon from '@/public/icons/close.svg';
 import styles from './header.module.css';
 
 const Header = ({ className, ...props }: HeaderProps) => {
@@ -12,7 +13,9 @@ const Header = ({ className, ...props }: HeaderProps) => {
   const handleOpenMobileMenu = () => setIsOpenMenu((open) => !open);
   return (
     <header {...props} className={cn(className, styles.header)}>
-      <Logo />
+      <Link href='/'>
+        <Logo />
+      </Link>
       <div className={styles.rightSide}>
         <div className={styles.mobileMenuWrapper}>
           <CartIconMenu goodAmount={1} />

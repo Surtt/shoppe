@@ -23,6 +23,14 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn-bucket.hb.ru-msk.vkcs.cloud',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

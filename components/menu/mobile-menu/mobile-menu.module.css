@@ -1,6 +1,7 @@
 .mobileMenu {
   position: absolute;
   top: 40px;
+  z-index: 3;
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
@@ -24,4 +25,5 @@
 
 .additionalMenu {
   margin-top: 0;
+  margin-bottom: 40px;
 }
