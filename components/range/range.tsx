@@ -19,14 +19,14 @@ const Range = ({
 
   const handleMinChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const newMinVal = Math.min(+e.target.value, maxValue - step);
+    const newMinVal = Math.min(Number(e.target.value), maxValue - step);
     if (!values) setMinValue(newMinVal);
     onChangeValue({ min: newMinVal, max: maxValue });
   };
 
   const handleMaxChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const newMaxVal = Math.max(+e.target.value, minValue + step);
+    const newMaxVal = Math.max(Number(e.target.value), minValue + step);
     if (!values) setMaxValue(newMaxVal);
     onChangeValue({ min: minValue, max: newMaxVal });
   };
@@ -35,6 +35,9 @@ const Range = ({
   const maxPos = Math.round(((maxValue - min) / (max - min)) * 100);
 
   useEffect(() => {
+    if (!values) {
+      return;
+    }
     if (values) {
       setMinValue(values.min);
       setMaxValue(values.max);

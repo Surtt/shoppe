@@ -28,15 +28,16 @@ export default function Catalog() {
     };
   }, [searchParams]);
 
-  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
 
-  const getCurrentNumberPage = () =>
-    queries.offset + 1 ? queries.offset + 1 : 1;
+  const getCurrentNumberPage = useMemo(() => {
+    return queries.offset + 1 ? queries.offset + 1 : 1;
+  }, [queries.offset]);
 
   const [currentPage, setCurrentPage] = useState<number>(getCurrentNumberPage);
-  const offset = currentPage - 1;
+  const offset = useMemo(() => currentPage - 1, [currentPage]);
 
-  const [switchState, setSwitchState] = useState<boolean>(
+  const [switchState, setSwitchState] = useState(
     queries.discounted ? queries.discounted : false,
   );
 

@@ -1,5 +1,5 @@
 import { Filter } from './types/filter';
-import { Products } from './types/product';
+import { Product, Products } from './types/product';
 
 export const API = {
   products: `${process.env.NEXT_PUBLIC_DOMAIN}/api-demo/products`,
@@ -67,5 +67,14 @@ export const getProducts = async (
     throw new Error('Failed to fetch data');
   }
 
+  return res.json();
+};
+
+export const getProductBySku = async (sku: string): Promise<Product> => {
+  const res = await fetch(`${API.products}/sku/${sku}`);
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
   return res.json();
 };

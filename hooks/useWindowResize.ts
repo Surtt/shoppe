@@ -1,8 +1,10 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 
 const useWindowResizeThreshold = (threshold: number) => {
   const [isMobileSize, setIsMobileSize] = useState(
-    window.innerWidth <= threshold,
+    window ? window.innerWidth <= threshold : null,
   );
   const prevWidth = useRef(window.innerWidth);
 
